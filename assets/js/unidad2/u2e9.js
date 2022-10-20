@@ -2,18 +2,23 @@ var letra = prompt( "Ingresá una letra minúscula");
 
 switch(letra){
 	case "a":
-		alert("Ingresaste una vocal");
+	case "A":
+	alert("Ingresaste una vocal");
 	break;
 	case "e":
+	case "E":
 		alert("Ingresaste una vocal");
 	break;
 	case "i":
+	case "I":
 		alert("Ingresaste una vocal");
 	break;
 	case "o":
+	case "O":
 		alert("Ingresaste una vocal");
 	break;
 	case "u":
+	case "U":
 		alert("Ingresaste una vocal");
 	break;
 	default:
