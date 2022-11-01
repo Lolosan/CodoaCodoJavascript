@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ejercicios de Javascript - Unidad 3</title>
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient">
+			<div class="container-fluid mx-4">
+				<a class="navbar-brand" href="index.html">
+					<img src="assets/img/logo-js.png" alt="Logo" width="80" height="80" class="d-inline-block align-text-middle me-4">
+					Ejercicios Javascript
+				</a>
+			  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+			  	</button>
+				
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="ms-4 nav navbar-nav mb-2 mb-lg-0 gap-3">
+						<li class="nav-item px-4">
+							<a class="nav-link" href="unidad1.html">Unidad 1</a>
+						</li>
+						<li class="nav-item px-4">
+							<a class="nav-link" href="unidad2.html">Unidad 2</a>
+						</li>
+						<li class="nav-item px-4">
+							<a class="nav-link" href="unidad3.html">Unidad 3</a>
+						</li>
+					</ul>
+			  	</div>
+			</div>
+		</nav>
+	</header>
+
+	<main class="container mt-4">
+		<div class="row">
+			<div class="col">
+				<div class="d-flex align-items-start mt-4">
+					<div class="nav flex-column nav-pills me-4 w-25" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+						<button class="nav-link active" id="v-pills-ej14-tab" data-bs-toggle="pill" data-bs-target="#v-pills-ej14" type="button" role="tab" aria-controls="v-pills-ej14" aria-selected="true">Ejercicio 14</button>
+					  	<button class="nav-link" id="v-pills-ej15-tab" data-bs-toggle="pill" data-bs-target="#v-pills-ej15" type="button" role="tab" aria-controls="v-pills-ej15" aria-selected="false">Ejercicio 15</button>
+					  	<button class="nav-link" id="v-pills-ej16-tab" data-bs-toggle="pill" data-bs-target="#v-pills-ej16" type="button" role="tab" aria-controls="v-pills-ej16" aria-selected="false">Ejercicio 16</button>
+					  	<button class="nav-link" id="v-pills-ej17-tab" data-bs-toggle="pill" data-bs-target="#v-pills-ej17" type="button" role="tab" aria-controls="v-pills-ej17" aria-selected="false">Ejercicio 17</button>
+						<button class="nav-link" id="v-pills-ej18-tab" data-bs-toggle="pill" data-bs-target="#v-pills-ej18" type="button" role="tab" aria-controls="v-pills-ej18" aria-selected="false">Ejercicio 18</button>
+						<button class="nav-link" id="v-pills-ej19-tab" data-bs-toggle="pill" data-bs-target="#v-pills-ej19" type="button" role="tab" aria-controls="v-pills-ej19" aria-selected="false">Ejercicio 19</button>
+					</div>
+					<div class="tab-content w-75 fs-5" id="v-pills-tabContent">
+					  	<div class="tab-pane fade show active" id="v-pills-ej14" role="tabpanel" aria-labelledby="v-pills-ej14-tab">
+							<p>Se le solicita al usuario que ingrese 3 números. Realice un programa para informar si el número es múltiplo de 3, múltiplo 5, múltiplo de ambos o múltiplo de ninguno.</p>
+							<div class="d-grid gap-2 w-50 mx-auto">
+								<button onclick="ejecutarU3E14()" class="btn btn-success" type="button">Ejecutar</button>
+							</div>	
+						</div>
+					  	<div class="tab-pane fade" id="v-pills-ej15" role="tabpanel" aria-labelledby="v-pills-ej15-tab">
+							<p>Se le solicita al usuario que ingrese los extremos de un rango numérico y una cantidad de valores desconocidos.</p>
+							<p>Realice un programa para informar si cada número está dentro del rango.</p>
+							<p>Si está en rango, informar si el número es par.</p>
+							<p>Si no está dentro del rango, informar si es número es impar.</p>
+							<p>Tenga en cuenta que el rango debe tener una diferencia mínima de 5 números enteros.</p>
+							<div class="d-grid gap-2 w-50 mx-auto">
+								<button onclick="ejecutarU3E15()" class="btn btn-success" type="button">Ejecutar</button>
+							</div>	
+						</div>
+					  	<div class="tab-pane fade" id="v-pills-ej16" role="tabpanel" aria-labelledby="v-pills-ej16-tab">
+							<p>Se le solicita al usuario que ingrese dos números y un operador (+, -, *, /).</p>
+							<p>Realice un programa para calcular e informar cada operación deseada entre los dos números.</p>
+							<p>Ese proceso se puede repetir mientras lo desee el usuario. Todos los valores deben ser validados.</p>
+							<div class="d-grid gap-2 w-50 mx-auto">
+								<button onclick="ejecutarU3E16()" class="btn btn-success" type="button">Ejecutar</button>
+							</div>	
+						</div>
+					  	<div class="tab-pane fade" id="v-pills-ej17" role="tabpanel" aria-labelledby="v-pills-ej17-tab">
+							<p>Se le solicita al usuario que ingrese las notas del parcial de los alumnos de una comisión. Se desconoce la cantidad de alumnos.</p>
+							<p>Realice el algoritmo para informar:</p>
+							<ol type="a">
+								<li>El porcentaje de alumnos aprobados (nota igual o superior a 4).</li>
+								<li>El porcentaje de alumnos desaprobados (nota inferior a 4).</li>
+								<li>El promedio de las notas.</li>
+							</ol>
+							<p>Tenga en cuenta que solamente las notas pueden ir del 1 al 10.</p>
+							<div class="d-grid gap-2 w-50 mx-auto">
+								<button onclick="ejecutarU3E17()" data-bs-toggle="modal" data-bs-target="#modalU3E17" class="btn btn-success" type="button">Ejecutar</button>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="v-pills-ej18" role="tabpanel" aria-labelledby="v-pills-ej18-tab">
+							<p>Se le solicita al usuario que ingrese una cantidad desconocida de números.</p>
+							<p>Realice un programa para calcular e informar:</p>
+							<ol type="a">
+								<li>La sumatoria de los valores ingresados.</li>
+								<li>El menor valor ingresado.</li>
+								<li>El mayor valor ingresado.</li>
+							</ol>
+							<div class="d-grid gap-2 w-50 mx-auto">
+								<button onclick="ejecutarU3E18()" class="btn btn-success" type="button">Ejecutar</button>
+							</div>	
+						</div>
+						<div class="tab-pane fade" id="v-pills-ej19" role="tabpanel" aria-labelledby="v-pills-ej19-tab">
+							<p>Como resultado de una encuesta se recogen los siguientes datos: sexo (H: Hombre, M: Mujer), edad (en años) y altura (en centímetros).</p>
+							<p>Realice un programa para calcular e informar:</p>
+							<ol type="a">
+								<li>El porcentaje de mujeres mayores a 25 años.</li>
+								<li>El porcentaje de hombres menores de 18 años.</li>
+								<li>El promedio de edad de las mujeres.</li>
+								<li>El promedio de altura de los hombres.</li>
+								<li>La menor edad ingresada.</li>
+								<li>La mayor altura ingresada</li>
+							</ol>
+							<div class="d-grid gap-2 w-50 mx-auto">
+								<button onclick="ejecutarU3E19()" class="btn btn-success" type="button">Ejecutar</button>
+							</div>	
+						</div>
+					</div>
+				</div>
+				  
+			</div>
+		</div>
+	</main>
+
+	<!-- Modal U3E17 -->
+	<div class="modal fade" id="modalU3E17" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Calculadora de notas</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="container">
+						<div class="row">
+							<div class="col">
+								<form id="ingresarNota" action="#" class="d-flex justify-content-between align-items-center">
+									<label for="inputNota" class="form-label">Ingresá la nota acá:</label>
+									<input type="number" class="form-control w-25" id="inputNota" min="1" max="10" step="0.01">
+									<button id="guardarNota" type="submit" class="btn btn-primary">Guardar nota</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="container my-5">
+						<div class="row">
+							<div class="col col-4 text-center">
+								<h2 class="fs-5">Alumnos aprobados</h2>
+								<p id="cuadroAprobados" class="fs-2 text-success"></p>
+							</div>
+							<div class="col col-4 text-center">
+								<h2 class="fs-5">Alumnos desprobados</h2>
+								<p id="cuadroDesaprobados" class="fs-2 text-danger"></p>
+							</div>
+							<div class="col col-4 text-center">
+								<h2 class="fs-5">Promedio general</h2>
+								<div id="cuadroPromedios" class="fs-2"></div>
+							</div>
+						</div>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="col">
+								<h4>Notas ingresadas:</h4>
+								<p id="cont_historial"></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer d-flex justify-content-between">
+					<button type="button" class="btn btn-danger" id="resetCuadros">Volver a empezar</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Terminar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/js/unidad3.js"></script>
+</body>
+</html>

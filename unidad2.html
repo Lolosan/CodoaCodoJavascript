@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ejercicios de Javascript - Unidad 2</title>
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient">
+			<div class="container-fluid mx-4">
+				<a class="navbar-brand" href="index.html">
+					<img src="assets/img/logo-js.png" alt="Logo" width="80" height="80" class="d-inline-block align-text-middle me-4">
+					Ejercicios Javascript
+				</a>
+			  	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+			  	</button>
+				
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="ms-4 nav navbar-nav mb-2 mb-lg-0 gap-3">
+						<li class="nav-item px-4">
+							<a class="nav-link" href="unidad1.html">Unidad 1</a>
+						</li>
+						<li class="nav-item px-4">
+							<a class="nav-link" href="unidad2.html">Unidad 2</a>
+						</li>
+						<li class="nav-item px-4">
+							<a class="nav-link" href="unidad3.html">Unidad 3</a>
+						</li>
+					</ul>
+			  	</div>
+			</div>
+		</nav>
+	</header>
+
+	<main class="container mt-4">
+		<div class="row">
+			<div class="col">
+				<div class="d-flex align-items-start mt-4">
+					<div class="nav flex-column nav-pills me-4 w-25" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+						<button class="nav-link active" id="v-pills-ej7-tab" data-bs-toggle="pill" data-bs-target="#v-pills-ej7" type="button" role="tab" aria-controls="v-pills-ej7" aria-selected="true">Ejercicio 7</button>
+					  	<button class="nav-link" id="v-pills-ej8-tab" data-bs-toggle="pill" data-bs-target="#v-pills-ej8" type="button" role="tab" aria-controls="v-pills-ej8" aria-selected="false">Ejercicio 8</button>
+					  	<button class="nav-link" id="v-pills-ej9-tab" data-bs-toggle="pill" data-bs-target="#v-pills-ej9" type="button" role="tab" aria-controls="v-pills-ej9" aria-selected="false">Ejercicio 9</button>
+					  	<button class="nav-link" id="v-pills-ej10-tab" data-bs-toggle="pill" data-bs-target="#v-pills-ej10" type="button" role="tab" aria-controls="v-pills-ej10" aria-selected="false">Ejercicio 10</button>
+						<button class="nav-link" id="v-pills-ej11-tab" data-bs-toggle="pill" data-bs-target="#v-pills-ej11" type="button" role="tab" aria-controls="v-pills-ej11" aria-selected="false">Ejercicio 11</button>
+						<button class="nav-link" id="v-pills-ej12-tab" data-bs-toggle="pill" data-bs-target="#v-pills-ej12" type="button" role="tab" aria-controls="v-pills-ej12" aria-selected="false">Ejercicio 12</button>
+						<button class="nav-link" id="v-pills-ej13-tab" data-bs-toggle="pill" data-bs-target="#v-pills-ej13" type="button" role="tab" aria-controls="v-pills-ej13" aria-selected="false">Ejercicio 13</button>
+					</div>
+					<div class="tab-content w-75 fs-5" id="v-pills-tabContent">
+					  	<div class="tab-pane fade show active" id="v-pills-ej7" role="tabpanel" aria-labelledby="v-pills-ej7-tab">
+							<p>Se le solicita al usuario que ingrese un número.</p>
+							<p>Realice un programa para informar si el número es cero, par o impar.</p>
+							<div class="d-grid gap-2 w-50 mx-auto">
+								<button onclick="ejecutarU2E7()" class="btn btn-success" type="button">Ejecutar</button>
+							</div>	
+						</div>
+					  	<div class="tab-pane fade" id="v-pills-ej8" role="tabpanel" aria-labelledby="v-pills-ej8-tab">
+							<p>Se le solicita al usuario que ingrese un número.</p>
+							<p>Realice un programa para informar si el número es múltiplo de 3.</p>
+							<div class="d-grid gap-2 w-50 mx-auto">
+								<button onclick="ejecutarU2E8()" class="btn btn-success" type="button">Ejecutar</button>
+							</div>	
+						</div>
+					  	<div class="tab-pane fade" id="v-pills-ej9" role="tabpanel" aria-labelledby="v-pills-ej9-tab">
+							<p>Se le solicita al usuario que ingrese una letra.</p>
+							<p>Realice el algoritmo para informar si el valor ingresado es una vocal.</p>
+							<div class="d-grid gap-2 w-50 mx-auto">
+								<button onclick="ejecutarU2E9()" class="btn btn-success" type="button">Ejecutar</button>
+							</div>	
+						</div>
+					  	<div class="tab-pane fade" id="v-pills-ej10" role="tabpanel" aria-labelledby="v-pills-ej10-tab">
+							<p>Se le solicita al usuario que ingrese los extremos de un rango numérico y un número. Realice un programa para informar si el número está dentro del rango.</p>
+							<p>Si está en rango, informar si el número es par.</p>
+							<p>Si no está dentro del rango, informar si es número es impar.</p>
+							<p>Tenga en cuenta que el rango debe tener una diferencia mínima de 5 números enteros.</p>
+							<div class="d-grid gap-2 w-50 mx-auto">
+								<button onclick="ejecutarU2E10()" class="btn btn-success" type="button">Ejecutar</button>
+							</div>	
+						</div>
+						<div class="tab-pane fade" id="v-pills-ej11" role="tabpanel" aria-labelledby="v-pills-ej11-tab">
+							<p>Se le solicita al usuario que ingrese dos números y un operador (+, -, *, /).</p>
+							<p>Realice un programa para calcular e informar la operación solicitada entre ambos números.</p>
+							<div class="d-grid gap-2 w-50 mx-auto">
+								<button onclick="ejecutarU2E11()" class="btn btn-success" type="button">Ejecutar</button>
+							</div>	
+						</div>
+						<div class="tab-pane fade" id="v-pills-ej12" role="tabpanel" aria-labelledby="v-pills-ej12-tab">
+							<p>Se le solicita al usuario que ingrese los tres lados de un triángulo.</p>
+							<p>Realice el algoritmo para informar si el triángulo es equilátero, isósceles o escaleno.</p>
+							<div class="d-grid gap-2 w-50 mx-auto">
+								<button onclick="ejecutarU2E12()" class="btn btn-success" type="button">Ejecutar</button>
+							</div>	
+						</div>
+						<div class="tab-pane fade" id="v-pills-ej13" role="tabpanel" aria-labelledby="v-pills-ej13-tab">
+							<p>Realizar un sistema para el cálculo de sueldo de una empresa.</p>
+							<p>Se le solicita al usuario que ingrese la categoría a la que pertenece que define el sueldo básico mensual (categoría 1: u$s 2000, categoría 2: u$s 3000, categoría 3: u$s 4000) y las horas extras.</p>
+							<p>Se sabe que:</p>
+							<ol type="a">
+								<li>
+									<p>Si es de la categoría 1 y trabajó más de 20 horas extra, suma un bono de u$s 500 más.</p>
+								</li>
+								<li>
+									<p>Si es de la categoría 3 y trabajó más de 30 horas extra, suma un bono de u$s 1000 más.</p>
+								</li>
+							</ol>
+							<p>Realice un programa para calcular e informar el sueldo mensual del empleado, indicando si su sueldo supera o no los u$s 4000.</p>
+							<div class="d-grid gap-2 w-50 mx-auto">
+								<button onclick="ejecutarU2E13()" class="btn btn-success" type="button">Ejecutar</button>
+							</div>	
+						</div>
+
+					</div>
+				</div>
+				  
+			</div>
+		</div>
+	</main>
+
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/js/unidad2.js"></script>
+</body>
+</html>
