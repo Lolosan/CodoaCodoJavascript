@@ -201,7 +201,8 @@ function ejecutarU3E17()
 	let ingresarNota = document.getElementById('ingresarNota');
 	let resetCuadros = document.getElementById('resetCuadros');
 
-	pasarFocus();
+	let modal = document.getElementById('modalU3E17');
+	pasarFocus( modal, ingresarNota );
 	
 	ingresarNota.addEventListener( 'submit', function(e)
 	{
@@ -269,28 +270,256 @@ function ejecutarU3E17()
 
 function ejecutarU3E18(){
 
-}
-function ejecutarU3E19(){
+	let minimos = [];
+	let minimo = 0;
+	let maximos = [];
+	let maximo = 0;
+	let suma = 0;
+
+	let ingresarNumero = document.getElementById('ingresarNumero');
+	let resetCuadros = document.getElementById('resetCuadrosNumeros');
+
+	let modal = document.getElementById('modalU3E18');
+	pasarFocus( modal, ingresarNumero );
+	
+	ingresarNumero.addEventListener( 'submit', function(e)
+	{
+		e.preventDefault();
+	
+		let inputNumero = document.getElementById('inputNumero');
+	
+		let numeroValido = validarNumero( inputNumero.value );
+	
+		if( numeroValido !== false )
+		{
+			historialNumero( numeroValido );
+
+			suma = suma + numeroValido;
+
+			minimos.push( numeroValido );
+			minimo = buscarMinimo( minimos );
+
+			maximos.push( numeroValido );
+			maximo = buscarMaximo( maximos );
+
+			actualizarCuadrosNumeros( suma, minimo, maximo );
+		}
+	});
+
+	resetCuadros.addEventListener( 'click', function(e)
+	{
+		e.preventDefault();
+
+		let borrartodos = [
+			document.getElementById('cuadroSuma'),
+			document.getElementById('cuadroMenor'),
+			document.getElementById('cuadroMayor'),
+			document.getElementById('cont_num_historial'),
+			document.getElementById('inputNumero'),
+		]
+	
+		for( let borrar of borrartodos )
+		{
+			if( borrar.id == 'inputNumero' )
+			{
+				borrar.value = 0;
+			}else
+			{
+				borrar.innerText = '';
+			}
+			
+		}
+
+		minimos = [];
+		minimo = 0;
+		maximos = [];
+		maximo = 0;
+		suma = 0;
+	
+
+	});
+
+	return;
 
 }
+function ejecutarU3E19()
+{
+	let mujeres = 0;
+	let hombres = 0;
+	let mujeresMas25 = 0;
+	let porcentajeMujeresMas25 = 0;
+	let hombresMenos18 = 0;
+	let porcentajeHombresMenos18 = 0;
+	let sumaEdadMujeres = 0;
+	let promedioEdadMujeres = 0;
+	let sumaAlturaHombres = 0;
+	let promedioAlturaHombres = 0;
+	let menoresEdades = [];
+	let menorEdad = 0;
+	let mayoresAlturas = [];
+	let mayorAltura = 0;
+
+	let guardarPersona = document.getElementById('ingresarDatos');
+	let resetCuadrosEncuesta = document.getElementById('resetCuadrosEncuesta');
+		
+	guardarPersona.addEventListener( 'submit', function(e)
+	{
+		//validador bootstrap
+		if (!e.target.checkValidity())
+		{
+			e.preventDefault();
+			e.stopPropagation();
+
+			return;
+		}
+		//validador bootstrap
+		e.target.classList.add('was-validated');
+
+		let inputGenero = document.getElementById('inputGenero');
+		let inputEdad = document.getElementById('inputEdad');
+		let inputAltura = document.getElementById('inputAltura');
+
+		//mujeres
+		if( inputGenero.value == 'F' )
+		{
+			mujeres++;
+
+			if( inputEdad.value >= 25 )
+			{
+				mujeresMas25++;
+			}
+
+			porcentajeMujeresMas25 = ( mujeresMas25 / mujeres ) * 100;
+
+			sumaEdadMujeres = parseInt( sumaEdadMujeres ) + parseInt( inputEdad.value );
+			promedioEdadMujeres = sumaEdadMujeres / mujeres;
+		}
+
+		if( inputGenero.value == 'M' )
+		{
+			hombres++;
+
+			if( inputEdad.value <= 18 )
+			{
+				hombresMenos18++;
+			}
+
+			porcentajeHombresMenos18 = ( hombresMenos18 / hombres ) * 100;
+
+			sumaAlturaHombres = parseInt( sumaAlturaHombres ) + parseInt( inputAltura.value );
+			promedioAlturaHombres = sumaAlturaHombres / hombres;
+		}
+
+		menoresEdades.push( inputEdad.value );
+		menorEdad = buscarMinimo( menoresEdades );
+
+		mayoresAlturas.push( inputAltura.value );
+		mayorAltura = buscarMaximo( mayoresAlturas );
+
+		actualizarEstadisticas( porcentajeMujeresMas25, porcentajeHombresMenos18, promedioEdadMujeres, promedioAlturaHombres, menorEdad, mayorAltura );
+	});
+
+	resetCuadrosEncuesta.addEventListener( 'click', function(e)
+	{
+		e.preventDefault();
+
+		let borrartodos = [
+			document.getElementById('cuadroFMayor25'),
+			document.getElementById('cuadroHMenor18'),
+			document.getElementById('cuadroPromEdadF'),
+			document.getElementById('cuadroPromAlturaM'),
+			document.getElementById('cuadroMenorEdad'),
+			document.getElementById('cuadroMayorEdad'),
+			document.getElementById('inputGenero'),
+			document.getElementById('inputEdad'),
+			document.getElementById('inputAltura'),
+		]
+	
+		for( let borrar of borrartodos )
+		{
+			if( borrar.id == 'inputEdad' || borrar.id == 'inputAltura' )
+			{
+				borrar.value = 0;
+			}else
+			{
+				borrar.innerText = '';
+			}
+			
+		}
+
+		porcentajeMujeresMas25 = 0;
+		porcentajeHombresMenos18 = 0;
+		promedioEdadMujeres = 0;
+		promedioAlturaHombres = 0;
+		menoresEdades = [];
+		menorEdad = 0;
+		mayoresAlturas = [];
+		mayorAltura = 0;
+	});
+
+	return;
+
+
+}
+
+/**
+ * ------------------------------------------------------------------------------------------------
+ * funciones satelite comunes
+ * ------------------------------------------------------------------------------------------------
+**/
+
+function pasarFocus( modal, input )
+{
+	modal.addEventListener('shown.bs.modal', function () {
+		input.focus()
+	})
+
+	return;
+}
+
+function buscarMinimo( array )
+{
+	let ordenado = ordenarArray( array );
+	let minimo = ordenado[0];
+	return minimo;
+}
+
+function buscarMaximo( array )
+{
+	let ordenado = ordenarArray( array );
+	let maximo = ordenado[ ordenado.length - 1 ];
+
+	return maximo;
+}
+
+function ordenarArray( array )
+{
+
+	//let ordenado = array.sort( function( a, b )
+	array.sort( function( a, b )
+	{
+		if(a == b)
+		{
+			return 0; 
+		}
+		
+		if(a < b) {
+			return -1;
+		}
+		
+		return 1;
+	});
+
+	//return ordenado;
+	return array;
+}
+
 
 /**
  * ------------------------------------------------------------------------------------------------
  * funciones satelite U3E17
  * ------------------------------------------------------------------------------------------------
 **/
-
-function pasarFocus()
-{
-	let modal = document.getElementById('modalU3E17');
-	let ingresarNota = document.getElementById('ingresarNota');
-	
-	modal.addEventListener('shown.bs.modal', function () {
-		ingresarNota.focus()
-	})
-
-	return;
-}
 
 function validarNota( nota )
 {
@@ -345,3 +574,78 @@ function actualizarCuadros( promedios, aprobados, desaprobados )
 	return;
 }
 
+/**
+ * ------------------------------------------------------------------------------------------------
+ * funciones satelite U3E18
+ * ------------------------------------------------------------------------------------------------
+**/
+
+function validarNumero( numero )
+{
+	numero = Number( numero );
+
+	if( isNaN( numero ) )
+	{
+		return false;
+	}else
+	{
+		return numero;
+	}
+}
+
+function historialNumero( numero )
+{
+	let contenedor = document.getElementById('cont_num_historial');
+	
+	if( contenedor.innerText.length < 1 )
+	{
+		contenedor.innerText = numero;
+	}else
+	{
+		contenedor.innerText = numero + ', ' + contenedor.innerText;
+	}
+	
+	return;
+}
+
+function actualizarCuadrosNumeros( suma, menor, mayor )
+{
+	let cuadroSuma = document.getElementById('cuadroSuma');
+	let cuadroMayor = document.getElementById('cuadroMayor');
+	let cuadroMenor = document.getElementById('cuadroMenor');
+
+	cuadroSuma.innerHTML = suma.toFixed(2);
+
+	cuadroMayor.innerText = mayor.toFixed(2);
+
+	cuadroMenor.innerText = menor.toFixed(2);
+
+	return;
+}
+
+
+/**
+ * ------------------------------------------------------------------------------------------------
+ * funciones satelite U3E19
+ * ------------------------------------------------------------------------------------------------
+**/
+
+function actualizarEstadisticas( porcentajeMujeresMas25, porcentajeHombresMenos18, promedioEdadMujeres, promedioAlturaHombres, menorEdad, mayorAltura )
+{
+	let cuadroFMayor25 = document.getElementById('cuadroFMayor25');
+	let cuadroHMenor18 = document.getElementById('cuadroHMenor18');
+	let cuadroPromEdadF = document.getElementById('cuadroPromEdadF');
+	let cuadroPromAlturaM = document.getElementById('cuadroPromAlturaM');
+	let cuadroMenorEdad = document.getElementById('cuadroMenorEdad');
+	let cuadroMayorEdad = document.getElementById('cuadroMayorEdad');
+
+	cuadroFMayor25.innerText = porcentajeMujeresMas25.toFixed(2) + '%';
+	cuadroHMenor18.innerText = porcentajeHombresMenos18.toFixed(2) + '%';
+	cuadroPromEdadF.innerText = promedioEdadMujeres.toFixed(2);
+	cuadroPromAlturaM.innerText = promedioAlturaHombres.toFixed(2) + 'cm';
+	cuadroMenorEdad.innerText = menorEdad;
+	cuadroMayorEdad.innerText = mayorAltura + 'cm';
+
+	return;
+
+}

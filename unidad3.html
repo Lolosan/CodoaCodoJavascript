@@ -95,7 +95,7 @@
 								<li>El mayor valor ingresado.</li>
 							</ol>
 							<div class="d-grid gap-2 w-50 mx-auto">
-								<button onclick="ejecutarU3E18()" class="btn btn-success" type="button">Ejecutar</button>
+								<button onclick="ejecutarU3E18()" data-bs-toggle="modal" data-bs-target="#modalU3E18" class="btn btn-success" type="button">Ejecutar</button>
 							</div>	
 						</div>
 						<div class="tab-pane fade" id="v-pills-ej19" role="tabpanel" aria-labelledby="v-pills-ej19-tab">
@@ -110,7 +110,7 @@
 								<li>La mayor altura ingresada</li>
 							</ol>
 							<div class="d-grid gap-2 w-50 mx-auto">
-								<button onclick="ejecutarU3E19()" class="btn btn-success" type="button">Ejecutar</button>
+								<button onclick="ejecutarU3E19()" data-bs-toggle="modal" data-bs-target="#modalU3E19" class="btn btn-success" type="button">Ejecutar</button>
 							</div>	
 						</div>
 					</div>
@@ -144,7 +144,7 @@
 						<div class="row">
 							<div class="col col-4 text-center">
 								<h2 class="fs-5">Alumnos aprobados</h2>
-								<p id="cuadroAprobados" class="fs-2 text-success"></p>
+								<p id="cuadroAprobados" class="fs-2 text-info"></p>
 							</div>
 							<div class="col col-4 text-center">
 								<h2 class="fs-5">Alumnos desprobados</h2>
@@ -152,7 +152,7 @@
 							</div>
 							<div class="col col-4 text-center">
 								<h2 class="fs-5">Promedio general</h2>
-								<div id="cuadroPromedios" class="fs-2"></div>
+								<div id="cuadroPromedios" class="fs-2 text-success"></div>
 							</div>
 						</div>
 					</div>
@@ -172,6 +172,148 @@
 			</div>
 		</div>
 	</div>
+	<!-- Fin modal U3E17 -->
+
+	<!-- Modal U3E18 -->
+	<div class="modal fade" id="modalU3E18" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Calculadora de números</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="container">
+						<div class="row">
+							<div class="col">
+								<form id="ingresarNumero" action="#" class="d-flex justify-content-between align-items-center">
+									<label for="inputNumero" class="form-label">Ingresá un número acá:</label>
+									<input type="number" class="form-control w-25" id="inputNumero" step="0.01">
+									<button id="guardarNumero" type="submit" class="btn btn-primary">Guardar número</button>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="container my-5">
+						<div class="row">
+							<div class="col col-4 text-center">
+								<h2 class="fs-5">Suma total</h2>
+								<p id="cuadroSuma" class="fs-2 text-info"></p>
+							</div>
+							<div class="col col-4 text-center">
+								<h2 class="fs-5">Menor valor ingresado</h2>
+								<p id="cuadroMenor" class="fs-2 text-danger"></p>
+							</div>
+							<div class="col col-4 text-center">
+								<h2 class="fs-5">Mayor valor ingresado</h2>
+								<div id="cuadroMayor" class="fs-2 text-success"></div>
+							</div>
+						</div>
+					</div>
+					<div class="container">
+						<div class="row">
+							<div class="col">
+								<h4>Historial de números ingresados:</h4>
+								<p id="cont_num_historial"></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer d-flex justify-content-between">
+					<button type="button" class="btn btn-danger" id="resetCuadrosNumeros">Volver a empezar</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Terminar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Fin modal U3E18 -->
+
+    <!-- Modal U3E19 -->
+	<div class="modal fade" id="modalU3E19" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Encuesta</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="container">
+						<div class="row">
+							<div class="col">
+								<form id="ingresarDatos" action="#" class="needs-validation" novalidate>
+									<div class="container">
+										<div class="row">
+											<div class="col-4 text-center">
+												<label for="inputGenero" class="form-label">¿Cuál es tu género?</label>
+												<select id="inputGenero" class="form-select mx-auto" aria-label="Default select example" required>
+													<option selected value="">Elegí tu género</option>
+													<option value="M">Masculino</option>
+													<option value="F">Femenino</option>
+												</select>
+												<div class="invalid-feedback">Elegí tu género</div>
+											</div>
+											<div class="col-4 text-center">
+												<label for="inputEdad" class="form-label">¿Cuál es tu edad?</label>
+												<input type="number" class="form-control w-50 text-center mx-auto" id="inputEdad" min="1" max="125" step="1" required>
+												<div class="invalid-feedback">Ingresá tu edad</div>
+											</div>
+											<div class="col-4 text-center">
+												<label for="inputAltura" class="form-label">¿Cuál es tu altura?</label>
+												<div class="d-flex justify-content-center align-items-center gap-2">
+													<div class="w-50">
+														<input type="number" class="form-control text-center" id="inputAltura" min="1" max="250" step="1" required>
+														<div class="invalid-feedback">Ingresá tu altura</div>
+													</div>
+													<small class="fs-6">Centímetros</small>
+												</div>
+											</div>
+											<div class="col-12 text-center my-3">
+												<button id="guardarPersona" type="submit" class="btn btn-primary">Guardar persona</button>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="container my-2">
+						<div class="row">
+							<h2>Estadísticas</h2>
+							<div class="col-10 mx-auto my-2 d-flex justify-content-center align-items-center gap-2">
+								<p class="fs-5 w-100 m-0">Porcentaje de mujeres mayores a 25 años</p>
+								<div id="cuadroFMayor25" class="fs-4 w-25 h-100 border border-primary text-center"></div>
+							</div>
+							<div class="col-10 mx-auto my-2 d-flex justify-content-center align-items-center gap-2">
+								<p class="fs-5 w-100 m-0">Porcentaje de hombres menores de 18 años</p>
+								<div id="cuadroHMenor18" class="fs-4 w-25 h-100 border border-primary text-center"></div>
+							</div>
+							<div class="col-10 mx-auto my-2 d-flex justify-content-center align-items-center gap-2">
+								<p class="fs-5 w-100 m-0">Promedio de edad de las mujeres</p>
+								<div id="cuadroPromEdadF" class="fs-4 w-25 h-100 border border-primary text-center"></div>
+							</div>
+							<div class="col-10 mx-auto my-2 d-flex justify-content-center align-items-center gap-2">
+								<p class="fs-5 w-100 m-0">Promedio de altura de los hombres</p>
+								<div id="cuadroPromAlturaM" class="fs-4 w-25 h-100 border border-primary text-center"></div>
+							</div>
+							<div class="col-10 mx-auto my-2 d-flex justify-content-center align-items-center gap-2">
+								<p class="fs-5 w-100 m-0">Menor edad ingresada</p>
+								<div id="cuadroMenorEdad" class="fs-4 w-25 h-100 border border-primary text-center"></div>
+							</div>
+							<div class="col-10 mx-auto my-2 d-flex justify-content-center align-items-center gap-2">
+								<p class="fs-5 w-100 m-0">Mayor altura ingresada</p>
+								<div id="cuadroMayorEdad" class="fs-4 w-25 h-100 border border-primary text-center"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer d-flex justify-content-between">
+					<button type="button" class="btn btn-danger" id="resetCuadrosEncuesta">Volver a empezar</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Terminar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Fin modal U3E19 -->	
 	
 	<script src="assets/js/bootstrap.bundle.min.js"></script>
 	<script src="assets/js/unidad3.js"></script>
